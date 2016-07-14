@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Pattern.js demo page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="patternjs"
+        data-events="paste,input"
+        data-clear-invalid="false"
+    >
+        <input type="text" data-pattern="[\d]{2}-[\w]{3}" class="input" data-pattern-error-selector="error" data-pattern-target="submit">
+        <div class="error">
+            Оч плохо!
+        </div>
+        <input type="text" data-pattern="[\w]{2}" class="input" data-pattern-target="submit">
+        <input type="text" pattern="[\w]{2}" class="input">
+        <input type="number" class="input test1" data-pattern="[0-9]{3}"/>
+        <textarea class="input" data-pattern="[a-zA-Z]*"></textarea>
+
+        <input type="submit" class="submit" value="Отправить"/>
+    </div>
+
+  <script src="../src/pattern.js"></script>
+</body>
+</html>

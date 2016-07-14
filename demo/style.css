@@ -1,0 +1,23 @@
+.input {
+    display: block;
+    padding: 3px;
+    margin: 10px;
+}
+.input:focus {
+    outline: 0;
+}
+
+.input.invalid {
+    border: 3px solid red;
+}
+
+.input.valid {
+    border: 3px solid green;
+}
+
+.error {
+    display: none;
+    position: absolute;
+    margin: -35px 0 0 170px;
+    padding: 3px;
+}
