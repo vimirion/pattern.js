@@ -5,7 +5,7 @@
         var tagName = e.target.tagName;
 
         if(['INPUT', 'TEXTAREA'].indexOf(tagName) !== -1 && e.target.classList.contains(VALIDATION_CLASS)) {
-            console.dir(e.target);
+            // console.dir(e.target);
             // debugger;
 
             var pattern = getPattern(e.target),
@@ -38,9 +38,27 @@
         }
     });
 
-    function getDeactivationTargets() {
+    document.querySelector('.submit').addEventListener('click', function(e) {
+        e.preventDefault();
+        var newDiv = document.createElement("div");
+        document.querySelector('.pv-form').insertBefore(newDiv, this);
+    });
 
-    }
+    //https://addyosmani.com/blog/mutation-observers/
+
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        console.log(mutation);
+      });
+    });
+
+    // configuration of the observer:
+    var config = { childList: true };
+
+    // pass in the target node, as well as the observer options
+    observer.observe(document.body, config);
 
     function toCamelCase(attrName) {
         var wordsArr = attrName.split('-'),
